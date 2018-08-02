@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Pinocchio's Pizza & Subs
+
+{% endblock %}
+
+
+{% block content %}
+
+  <div id="menu">
+    <h1>Menu</h1>
+    <h6>Add whatever you want to order, and then check your Cart.</h6>
+    <hr>
+      <table id="menutable">
+        <tr>
+          <td></td>
+          <td><small class="text-muted">*Special: Chef's Recommend Topping Today</small></td>
+        </tr>
+        <form action="{% url 'addpizza' %}" method="post">
+          <tr>
+            {% csrf_token %}
+            <td>
+              <h5>Pizza {{ message }}</h5>
+            </td>
+              <td>
+                <select name="pizzastyle" class="btn btn-outline-dark dropdown-toggle custom1" type="button">
+                  {% for x in style %}
+                  <option value="{{ x.id }}">{{ x }}</option>
+                  {% endfor %}
+                </select>
+                <select name="pizzatype" class="btn btn-outline-dark dropdown-toggle custom1" type="button">
+                  {% for x in type %}
+                  <option value="{{ x.id }}">{{ x }}</option>
+                  {% endfor %}
+                </select>
+                <select name="pizzasize" class="btn btn-outline-dark dropdown-toggle" type="button">
+                  {% for x in size %}
+                  <option value="{{ x.id }}">{{ x }}</option>
+                  {% endfor %}
+                </select>
+              </td>
+              <td>
+                <input class="btn btn-success" type="submit" value="Add" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+            </td>
+            <td>
+              <select name="topping1" class="btn btn-outline-dark dropdown-toggle btn-sm custom2" type="button">
+                {% for t in topping %}
+                <option value="{{ t.id }}">{{ t }}</option>
+                {% endfor %}
+              </select>
+
+              <select name="topping2" class="btn btn-outline-dark dropdown-toggle btn-sm custom2" type="button">
+                {% for t in topping %}
+                 <option value="{{ t.id }}">{{ t }}</option>
+                {% endfor %}
+              </select>
+
+              <select name="topping3" class="btn btn-outline-dark dropdown-toggle btn-sm custom2" type="button">
+                {% for t in topping %}
+                   <option value="{{ t.id }}">{{ t }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td>
+            </td>
+          </tr>
+        </form>
+
+        <tr>
+          <td>
+            <hr>
+          </td>
+          <td>
+            <hr>
+          </td>
+          <td>
+            <hr>
+          </td>
+        </tr>
+
+        <tr>
+          <form action="{% url 'addsub' %}" method="post">
+            {% csrf_token %}
+            <td>
+              <h5>Subs</h5>
+            </td>
+            <td>
+              <select name="subname" class="btn btn-outline-dark dropdown-toggle custom2" type="button">
+                {% for x in subname %}
+                <option value="{{ x.id }}">{{ x }}</option>
+                {% endfor %}
+              </select>
+              <select name="subsize" class="btn btn-outline-dark dropdown-toggle" type="button">
+                {% for x in size %}
+                <option value="{{ x.id }}">{{ x }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td>
+              <input class="btn btn-success" type="submit" value="Add" />
+            </td>
+          <tr>
+            <td>
+            </td>
+            <td>
+              <select name="subtopping" class="btn btn-outline-dark dropdown-toggle btn-sm custom3" type="button">
+              {% for t in subtopping %}
+              <option value="{{ t.id }}">{{ t }}</option>
+              {% endfor %}
+              </select>
+            </td>
+          </tr>
+        </form>
+      </tr>
+
+      <tr>
+        <td>
+          <hr>
+        </td>
+        <td>
+          <hr>
+        </td>
+        <td>
+          <hr>
+        </td>
+      </tr>
+
+      <tr>
+        <form action="{% url 'addsaladpasta' %}" method="post">
+          {% csrf_token %}
+          <td>
+            <h5>Salad & Pasta</h5>
+          </td>
+          <td>
+            <select name="saladpasta" class="btn btn-outline-dark dropdown-toggle custom" type="button">
+              {% for x in saladpasta %}
+              <option value="{{ x.id }}">{{ x }}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <input class="btn btn-success" type="submit" value="Add" />
+          </td>
+        </form>
+      </tr>
+
+      <tr>
+        <td>
+          <hr>
+        </td>
+        <td>
+          <hr>
+        </td>
+        <td>
+          <hr>
+        </td>
+      </tr>
+
+      <tr>
+        <form action="{% url 'adddinplat' %}" method="post">
+          {% csrf_token %}
+          <td>
+            <h5>Dinner Platters</h5>
+          </td>
+          <td>
+            <select name="dinplat" class="btn btn-outline-dark dropdown-toggle custom2" type="button">
+              {% for x in dinplatname %}
+              <option value="{{ x.id }}">{{ x }}</option>
+              {% endfor %}
+            </select>
+            <select name="dinplatsize" class="btn btn-outline-dark dropdown-toggle" type="button">
+              {% for x in size %}
+              <option value="{{ x.id }}">{{ x }}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <input class="btn btn-success" type="submit" value="Add" />
+          </td>
+        </form>
+      </tr>
+    </table>
+    <br>
+    <div class="open">
+      <hr>
+      <p>Sunday:	1 pm - 12 midnight</p>
+      <p>Monday - Thursday:	11 am - 1 am</p>
+      <p>Friday - Saturday:	11 am - 2:30 am</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>-</p>
+    <p>Pinocchio's Pizza & Subs / 74 winthrop street Harvard Squre / 617-876-4897</p>
+    <hr>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <form action="https://www.facebook.com/PinocchiosPizza" target="_blank">
+        <input type="submit" class="btn btn-outline-light btn-sm" value="facebook"/>
+      </form>
+      <form action="https://www.instagram.com/pinocchiospizza1" target="_blank">
+        <input type="submit" class="btn btn-outline-light btn-sm" value="instagram"/>
+      </form>
+      <form action="mailto:pinocchiospizza1@gmail.com" target="_blank">
+        <input type="submit" class="btn btn-outline-light btn-sm" value="e-mail"/>
+      </form>
+    </div>
+  </footer>
+
+{% endblock %}

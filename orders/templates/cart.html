@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Pinocchio's Pizza & Subs
+
+{% endblock %}
+
+{% block content %}
+<div id="cart">
+  <div class="buttons">
+    <a class="btn btn-outline-success" href="{% url 'index' %}">Back</a>
+    <a class="btn btn-outline-danger" href="{% url 'clear' %}">Clear</a>
+  </div>
+
+  <h1>{{ user }}'s Cart</h1>
+  <hr>
+  <ul>
+    <h5>Pizza order</h5>
+
+    <table>
+    {% csrf_token %}
+    {% for x in pizza %}
+      <li>
+        <tr>
+          <td>{{ x }}</td>
+        </tr>
+      </li>
+      {% empty %}
+        <li>You don't need any Pizza?</li>
+    {% endfor %}
+    </table>
+  </ul>
+  <hr>
+  <ul>
+    <h5>Sub order</h5>
+    {% for x in sub %}
+    <li>{{ x }}</li>
+    {% empty %}
+    <li>What Sub?</li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <ul>
+    <h5>Salad & Pasta order</h5>
+    {% for x in saladpasta %}
+    <li>{{ x }}</li>
+    {% empty %}
+    <li>What about a Salad or Pasta?</li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <ul>
+    <h5>Dinner Platter order</h5>
+    {% for x in dinplat %}
+    <li>{{ x }}</li>
+    {% empty %}
+    <li>I don't even know what dinner platter means.</li>
+    {% endfor %}
+  </ul>
+  <hr>
+</div>
+
+<div id="total">
+  <br>
+  <br>
+  <h3>Total Amount</h3>
+  <ul>
+  {% if pizza_sum %}
+  <li>Pizza Total: ${{ pizza_sum }}</li>
+  {% else %}
+  <li></li>
+  {% endif %}
+  {% if sub_sum %}
+  <li>Sub Total: ${{ sub_sum }}</li>
+  {% else %}
+  <li></li>
+  {% endif %}
+  {% if saladpasta_sum %}
+  <li>Salad & Pasta Total: ${{ saladpasta_sum }}</li>
+  {% else %}
+  <li></li>
+  {% endif %}
+  {% if dinplat_sum %}
+  <li>Dinner Platter Total: ${{ dinplat_sum }}</li>
+  {% else %}
+  <li></li>
+  {% endif %}
+  <hr>
+  <li><h5>Total: ${{ total_sum }}</h5></li>
+  </ul>
+  <div class="orderbutton">
+    <a class="btn btn-success" href="{% url 'order' %}">Order</a>
+  </div>
+</div>
+<br>
+{% endblock %}

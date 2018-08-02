@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Pinocchio's Pizza & Subs
+
+{% endblock %}
+
+{% block content %}
+<div class="extra">
+  <h1>Your Previous Order List</h1>
+  {% csrf_token %}
+  <hr>
+  <ul>
+    {% for cart in usercart %}
+    <li><h6><a class="orderlist" href="{% url 'previousorders' cart.id %}">{{ cart }}</a></h6></li>
+    {% empty %}
+    <li>No orders.</li>
+    {% endfor %}
+  </ul>
+    <hr>
+  <div class="buttons">
+    <a class="btn btn-outline-success" href="{% url 'index' %}">Back</a>
+  </div>
+</div>
+{% endblock %}

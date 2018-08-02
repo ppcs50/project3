@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Pinocchio's Pizza & Subs
+
+{% endblock %}
+
+{% block content %}
+
+<div class="extra">
+
+    <div class="buttons">
+      <a class="btn btn-outline-success" href="{% url 'orders' user %}">Back</a>
+    </div>
+
+    <h4>{{ cart }}</h4>
+
+    <div class="previousorderlist">
+        <hr>
+        {% for x in pizzaorder %}
+        <li>{{ x }}</li>
+        {% endfor %}
+        {% for x in suborder %}
+        <li>{{ x }}</li>
+        {% endfor %}
+        {% for x in saladpastaorder %}
+        <li>{{ x }}</li>
+        {% endfor %}
+        {% for x in dinplatorder %}
+        <li>{{ x }}</li>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

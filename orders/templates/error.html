@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Pinocchio's Pizza & Subs
+
+{% endblock %}
+
+{% block content %}
+<div class="extra">
+  <div class="buttons">
+    <a class="btn btn-outline-success" href="{% url 'index' %}">Back</a>
+  </div>
+  <h1>Error</h1>
+  <hr>
+  {{ message }}
+</div>
+{% endblock %}

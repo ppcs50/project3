@@ -1,0 +1,187 @@
+header {
+  padding : 15px;
+  background-color: #25772c;
+  color: #ffffff;
+  height: auto;
+  text-align: right; }
+
+main {
+  padding : 30px;
+}
+
+body {
+  background: url("/static/img/background.png") 50% 0 no-repeat fixed;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  background-color: #c60505;
+  text-align: center;
+  padding: 1rem;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 100%;
+  display: block;
+}
+
+table tr td {
+  padding: 5px;
+}
+
+li {
+  list-style-type: none;
+}
+
+
+#menu {
+  background-color: rgba( 255, 255, 255, 0.7 );
+  position: relative;
+  margin: auto;
+  width: 75%;
+  min-width: 600px;
+  padding: 20px 15px 170px 15px;
+}
+
+#menutable {
+  margin: auto;
+}
+
+#total {
+  font-variant: small-caps;
+  float: right;
+  width: 40%;
+  min-width: 300px;
+  text-align: right;
+  padding: 20px 100px 100px 40px;
+}
+
+#cart {
+  background-color: rgba( 255, 255, 255, 0.9 );
+  margin: auto;
+  width: 75%;
+  min-width: 600px;
+  padding: 20px 15px 30px 15px;
+}
+
+.logo {
+  float: left;
+}
+
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+  max-width: 80%;
+  padding: 50px 70px 70px 71px;
+}
+
+.login-form{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba( 255, 255, 255, 0.9 );
+  width: 80%;
+  padding: 50px;
+  margin: 70px auto 100px auto;
+}
+
+.signup-form{
+  text-align: center;
+  padding: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba( 255, 255, 255, 0.9 );
+  width: auto;
+}
+
+.login-form  .btn.btn-primary {
+  background: #25772c none repeat scroll 0 0;
+  border-color: #25772c;
+  color: #ffffff;
+  font-size: 14px;
+  width: 95px;
+  line-height: 50px;
+  padding: 0;
+}
+
+.error {
+  color: red;
+}
+
+.fieldtext{
+  color: grey;
+}
+
+.buttons {
+  text-align: right;
+  float: right;
+}
+
+.orderbutton {
+  float: right;
+}
+
+.custom {
+    width: 280px !important;
+}
+
+.custom1 {
+    width: 118px !important;
+}
+
+.custom2 {
+    width: 241px !important;
+}
+
+.btn-sm {
+    width: 91px !important;
+}
+
+.custom3 {
+    width: 280px !important;
+}
+
+.extra {
+  background-color: rgba( 255, 255, 255, 0.7 );
+  position: relative;
+  margin: auto;
+  width: 70%;
+  padding: 20px 15px 170px 15px;
+}
+
+.previousorderlist {
+  position: relative;
+  margin: auto;
+  padding: 30px 25px 170px 25px;
+}
+
+.orderlist {
+  font-variant: small-caps;
+  font-weight: bold;
+  color: black;
+}
+
+.orderlist:hover {
+  color: #25772c;
+}
+
+.open {
+  font-variant: small-caps;
+  text-align: center;
+  line-height: 100%;
+}
+
+@media screen and (max-width: 655px) {
+
+  .login-form {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba( 255, 255, 255, 0.9 );
+  width: auto%;
+  }
+
+
+}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="login-form">
+<h3>Welcome!</h3>
+<h5>Please log in first for using our Website.</h5>
+<hr>
+  {% if form.errors %}
+    <p style="color: red">Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  <form method="post">
+    <div class="form-group">
+    {% csrf_token %}
+    <input type="hidden" class="form=control" name="next" value="{{ next }}" />
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}<br>
+        {% for error in field.errors %}
+          <p class="error">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Log in</button>
+    <a class="btn btn-link" href="{% url 'signup' %}"> or Sign up</a>
+    </div>
+  </form>
+</div>
+<footer>
+  <p>-</p>
+  <p>Pinocchio's Pizza & Subs / 74 winthrop street Harvard Squre / 617-876-4897</p>
+  <hr>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <form action="https://www.facebook.com/PinocchiosPizza" target="_blank">
+      <input type="submit" class="btn btn-outline-light btn-sm" value="facebook"/>
+    </form>
+    <form action="https://www.instagram.com/pinocchiospizza1" target="_blank">
+      <input type="submit" class="btn btn-outline-light btn-sm" value="instagram"/>
+    </form>
+    <form action="mailto:pinocchiospizza1@gmail.com" target="_blank">
+      <input type="submit" class="btn btn-outline-light btn-sm" value="e-mail"/>
+    </form>
+  </div>
+</footer>
+{% endblock %}
